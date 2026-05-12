@@ -4,6 +4,8 @@ use App\Http\Controllers\StatusController;
 
 use Illuminate\Support\Facades\Route;
 
+use Inertia\Inertia;
+
 Route::controller(StatusController::class)
     ->group(function () {
         Route::get('/', function () {
