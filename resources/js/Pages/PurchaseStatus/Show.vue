@@ -26,8 +26,6 @@ defineProps({
                 {{ purchaseStatus.message }}
             </p>
 
-            <p class="note">状況は店舗側の更新後に反映されるよ。</p>
-
             <p v-if="purchaseStatus.last_synced_at" class="synced-at">
                 最終更新：{{ purchaseStatus.last_synced_at }}
             </p>
