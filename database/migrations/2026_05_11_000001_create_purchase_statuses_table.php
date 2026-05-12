@@ -17,6 +17,9 @@ return new class extends Migration
             // 店舗識別
             $table->string('store_key', 50)->comment('店舗キー');
 
+            // 営業日
+            $table->date('business_date')->comment('営業日');
+
             // KPOS側の買取番号
             $table->string('purchase_no', 50)->comment('買取番号');
 
@@ -37,13 +40,16 @@ return new class extends Migration
             $table->timestamps();
 
             // 同一店舗内の買取番号は一意
-            $table->unique(['store_key', 'purchase_no'], 'uq_purchase_status_store_purchase');
+            $table->unique(
+                ['store_key', 'business_date', 'purchase_no'],
+                'uq_purchase_status_store_date_purchase'
+            );
 
             // QRコードからの検索用
             $table->unique('public_token', 'uq_purchase_status_public_token');
 
             // 店舗ごとの検索・管理用
-            $table->index('store_key', 'idx_purchase_status_store_key');
+            $table->index(['store_key', 'business_date'], 'idx_purchase_status_store_date');
 
             // 期限切れ削除などで使う
             $table->index('expired_at', 'idx_purchase_status_expired_at');

@@ -9,6 +9,7 @@ class PurchaseStatus extends Model
     protected $fillable = [
         'store_key',
         'purchase_no',
+        'business_date',
         'public_token',
         'status_code',
         'status_label',
@@ -18,6 +19,7 @@ class PurchaseStatus extends Model
     ];
 
     protected $casts = [
+        'business_date' => 'date',
         'last_synced_at' => 'datetime',
         'expired_at' => 'datetime',
     ];

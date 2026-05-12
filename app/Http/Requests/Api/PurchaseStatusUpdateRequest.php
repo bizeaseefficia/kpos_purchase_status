@@ -26,6 +26,10 @@ class PurchaseStatusUpdateRequest extends FormRequest
                 'string',
                 'max:50',
             ],
+            'business_date' => [
+                'required',
+                'date',
+            ],
             'public_token' => [
                 'required',
                 'string',

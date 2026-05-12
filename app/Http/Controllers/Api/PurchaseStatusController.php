@@ -17,6 +17,7 @@ class PurchaseStatusController extends Controller
 
         $purchaseStatus = PurchaseStatus::firstOrNew([
             'store_key' => $validated['store_key'],
+            'business_date' => $validated['business_date'],
             'purchase_no' => $validated['purchase_no'],
         ]);
 
