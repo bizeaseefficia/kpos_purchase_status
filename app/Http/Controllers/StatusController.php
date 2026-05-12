@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PurchaseStatus;
 
 use Inertia\Inertia;
+use Inertia\Response;
 
 class StatusController extends Controller
 {
